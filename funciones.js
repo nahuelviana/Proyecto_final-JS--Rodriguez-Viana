@@ -1,4 +1,4 @@
-// Definimos un objeto que contenga información sobre cada comida
+//Objetos con info de la comida
 const menu = [
   {
     nombre: "Hamburguesa",
@@ -31,7 +31,7 @@ const menu = [
   },
 ];
 
-// Definimos una función que muestra el menú
+// Muestra del menú
 function mostrarMenu() {
   console.log("=== MENÚ ===");
   for (let i = 0; i < menu.length; i++) {
@@ -40,10 +40,10 @@ function mostrarMenu() {
   }
 }
 
-// Definimos un array para guardar las órdenes de los clientes
+// Carrito vacio
 let ordenes = [];
 
-// Definimos una función que permite al usuario hacer una orden
+// Hacer la orden
 function hacerOrden() {
   let opcion = parseInt(
     prompt("Ingrese el número de la comida que desea ordenar:")
@@ -64,7 +64,7 @@ function hacerOrden() {
   );
 }
 
-// Definimos una función que muestra la cuenta total de las órdenes
+// Cuenta total de las ordenes
 function mostrarCuenta() {
   let total = 0;
   console.log("=== CUENTA ===");
@@ -78,19 +78,19 @@ function mostrarCuenta() {
   console.log(`TOTAL: $${total}`);
 }
 
-// Definimos una función que muestra los ingredientes de una comida
+// Muestra ingredientes de la comida
 function mostrarIngredientes() {
-  // Preguntar al cliente qué comida quiere ver
+  // Consulta por que comida desea ver los ingredientes
   const comida = prompt(
     "¿Qué comida quieres ver? (Hamburguesa, Pizza, Ensalada)"
   ).toLowerCase();
 
-  // Buscar la comida en el menú
+  // FIND en el menu
   const comidaSeleccionada = menu.find(
     (item) => item.nombre.toLowerCase() === comida
   );
 
-  // Si se encontró la comida, imprimir sus ingredientes
+  // Imprimir ingredientes
   if (comidaSeleccionada) {
     console.log(`Ingredientes de ${comidaSeleccionada.nombre}:`);
     for (let i = 0; i < comidaSeleccionada.ingredientes.length; i++) {
@@ -106,12 +106,12 @@ function vaciarCarrito() {
   console.log("El carrito de compras ha sido vaciado.");
 }
 
-// Hacemos que el programa se ejecute en un ciclo mientras el usuario no decida salir
+// EL programa se ejecuta hasta la opcion salir
 let salir = false;
 while (!salir) {
   const opcion = parseInt(
     prompt(
-      "Ingrese una opción:\n1. Ver menú\n2. Hacer orden\n3. Ver cuenta\n4. mostrar ingredientes\n5. Borar pedido\n7. Salir"
+      "Ingrese una opción:\n1. Ver menú\n2. Hacer orden\n3. Ver cuenta\n4. mostrar ingredientes\n5. Borar pedido\n6. Salir"
     )
   );
   switch (opcion) {
@@ -131,8 +131,6 @@ while (!salir) {
       vaciarCarrito();
       break;
     case 6:
-      PasarAlPago();
-    case 7:
       salir = true;
       break;
     default:
