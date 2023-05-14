@@ -9,7 +9,7 @@
 }
 
 main {
-  background-color: white;
+  background-color: grey;
 }
 .navbar-brand {
   color: white;
@@ -18,6 +18,11 @@ main {
 .nav-link {
   color: white;
   text-decoration: underline;
+}
+
+ul li a img {
+  margin-left: 20px;
+  width: 75px;
 }
 
 H1 {
@@ -35,15 +40,28 @@ h2 {
   font-size: 20px;
 }
 
+.producto-precio {
+  font-size: 20;
+}
+
 .titulo-principal {
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  background-color: grey;
+  background-color: black;
+  color: white;
   height: 50px;
   font-size: 40px;
   text-decoration: underline;
+}
+
+.producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #000;
+  border-radius: 15px;
 }
 
 .contenedorbotones {
@@ -57,6 +75,7 @@ h2 {
 .boton-categoria {
   background-color: yellowgreen;
   margin: 10px;
+  color: black;
 }
 
 .d-grid {
@@ -82,5 +101,18 @@ img {
 }
 
 .producto-agregar {
+  margin-left: 50px;
   background-color: green;
+}
+
+/* css del carrito */
+
+main {
+  background-color: grey;
+}
+
+div p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

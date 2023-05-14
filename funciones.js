@@ -9,8 +9,7 @@ const productos = [
       id: "buzos",
       nombre: "buzos",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 2000, M: 2400, L: 2500 },
+    precio: 2500,
   },
   {
     id: "buzo02",
@@ -20,8 +19,7 @@ const productos = [
       id: "buzos",
       nombre: "buzos",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 2500, M: 2500, L: 2800 },
+    precio: 2100,
   },
   {
     id: "buzo3",
@@ -31,8 +29,7 @@ const productos = [
       id: "buzos",
       nombre: "buzos",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 3000, M: 3250, L: 3500 },
+    precio: 2000,
   },
   {
     id: "pantalon1",
@@ -42,8 +39,7 @@ const productos = [
       id: "pantalones",
       nombre: "pantalones",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 1900, M: 2100, L: 2400 },
+    precio: 2400,
   },
   {
     id: "pantalon2",
@@ -53,8 +49,7 @@ const productos = [
       id: "pantalones",
       nombre: "pantalones",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 2100, M: 2300, L: 2450 },
+    precio: 2300,
   },
   {
     id: "pantalon3",
@@ -64,8 +59,7 @@ const productos = [
       id: "pantalones",
       nombre: "pantalones",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 4000, M: 4100, L: 4200 },
+    precio: 2200,
   },
   {
     id: "remera1",
@@ -75,8 +69,7 @@ const productos = [
       id: "remeras",
       nombre: "remeras",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 1500, M: 1800, L: 2000 },
+    precio: 2100,
   },
   {
     id: "remera2",
@@ -86,8 +79,7 @@ const productos = [
       id: "remeras",
       nombre: "remeras",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 2000, M: 2000, L: 2000 },
+    precio: 2500,
   },
   {
     id: "remera3",
@@ -97,8 +89,7 @@ const productos = [
       id: "remeras",
       nombre: "remeras",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 2300, M: 2500, L: 2800 },
+    precio: 2600,
   },
   {
     id: "zapatilla1",
@@ -108,8 +99,7 @@ const productos = [
       id: "zapatillas",
       nombre: "zapatillas",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 3000, M: 3500, L: 3600 },
+    precio: 2500,
   },
   {
     id: "zapatilla2",
@@ -119,8 +109,7 @@ const productos = [
       id: "zapatillas",
       nombre: "zapatillas",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 3500, M: 3600, L: 3700 },
+    precio: 2700,
   },
   {
     id: "zapatilla3",
@@ -130,8 +119,7 @@ const productos = [
       id: "zapatillas",
       nombre: "zapatillas",
     },
-    tallas: ["S", "M", "L"],
-    precios: { S: 4000, M: 4500, L: 5000 },
+    precio: 2500,
   },
 ];
 
@@ -146,26 +134,10 @@ function cargarproductos(productoselegidos) {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
-    <img class="producto-imagen" src="${producto.imagen}" alt="${
-      producto.titulo
-    }">
+    <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
     <div class="producto-detalles">
       <h3 class="producto-titulo">${producto.titulo}</h3>
-      <div class="producto-tallas">
-        <p>Tallas:</p>
-        <ul class="tallas-lista">
-          ${producto.tallas
-            .map(
-              (talla) => `
-            <li>
-              <span class="talla"><input type="checkbox" name="myCheckbox" value="myValue">-${talla}-</span>
-              <span class="precio">-$${producto.precios[talla]}</span>
-            </li>
-          `
-            )
-            .join("")}
-        </ul>
-      </div>
+      <p class="producto-precio">$${producto.precio}</p>
       <button class="producto-agregar" id="${producto.id}">Agregar</button>
     </div>
     `;
@@ -221,9 +193,18 @@ function AgregarAlCarrito(e) {
     (producto) => producto.id === idboton
   );
   if (productosEnCarrito.some((producto) => producto.id === idboton)) {
+    const index = productosEnCarrito.findIndex(
+      (producto) => producto.id === idboton
+    );
+    productosEnCarrito[index].cantidad++;
   } else {
     productoAgregado.cantidad = 1;
     productosEnCarrito.push(productoAgregado);
   }
-  console.log(productosEnCarrito);
+  localStorage.setItem(
+    "productos-en-carrito",
+    JSON.stringify(productosEnCarrito)
+  );
+  const form = document.getElementById("form-" + idboton);
+  form.reset();
 }
