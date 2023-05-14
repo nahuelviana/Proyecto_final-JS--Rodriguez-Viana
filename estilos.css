@@ -3,41 +3,60 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* tarjetas */
-
-.tarjetas {
-  display: flex;
-  margin-top: 20px;
-  padding-top: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-main {
-  background-color: red;
-}
-
-.card {
-  width: 300px;
-  height: 400px;
-  border: 1px solid #ccc;
-}
-
-.card img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-}
-
-.botones {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .icono {
   max-width: 50px;
   max-height: 50px;
+}
+
+main {
+  background-color: aqua;
+}
+
+H1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+  padding: 20px;
+  font-size: 30px;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.contenedorbotones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.boton-categoria {
+  background-color: yellowgreen;
+  margin: 10px;
+}
+
+.d-grid {
+  padding: 30px;
+}
+
+/* tarjetas */
+img {
+  max-width: 250px;
+  border-radius: 20px;
+}
+
+.contenedor-productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  place-items: center;
+  padding: 30px;
+}
+.producto-agregar {
+  background-color: green;
 }

@@ -1,140 +1,132 @@
-//Objetos con info de la comida
-const menu = [
+//productos
+const productos = [
+  //buzos
   {
-    nombre: "Hamburguesa",
-    precio: 3000,
-    ingredientes: ["pan", "carne", "lechuga", "tomate", "cebolla", "salsa"],
+    id: "buzo01",
+    titulo: "buzo black and white",
+    imagen: "../imgs/buzos/buzo black and white.jpg",
+    categoria: {
+      id: buzo,
+    },
+    precio: 2000,
   },
   {
-    nombre: "Pizza",
-    precio: 2500,
-    ingredientes: [
-      "masa",
-      "salsa",
-      "queso",
-      "pepperoni",
-      "cebolla",
-      "pimiento",
-    ],
+    id: "buzo02",
+    titulo: "buzo blue",
+    imagen: "../imgs/buzos/buzo blue.jpg",
+    categoria: {
+      id: buzo,
+    },
+    precio: 2300,
   },
   {
-    nombre: "Ensalada",
+    id: "buzo3",
+    titulo: "buzo boreal",
+    imagen: "../imgs/buzos/buzo boreal.jpg",
+    categoria: {
+      id: buzo,
+    },
+    precio: 2200,
+  },
+  {
+    id: "pantalon1",
+    titulo: "pantalon black",
+    imagen: "../imgs/pantalones/pantalon black.jpg",
+    categoria: {
+      id: pantalon,
+    },
+    precio: 1900,
+  },
+  {
+    id: "pantalon2",
+    titulo: "pantalon brown",
+    imagen: "../imgs/pantalones/pantalon brown.jpg",
+    categoria: {
+      id: pantalon,
+    },
+    precio: 1800,
+  },
+  {
+    id: "pantalon3",
+    titulo: "pantalon jean",
+    imagen: "../imgs/pantalones/pantalon jean.jpg",
+    categoria: {
+      id: pantalon,
+    },
+    precio: 1950,
+  },
+  {
+    id: "remera1",
+    titulo: "remera fvking",
+    imagen: "../imgs/remeras/remera fuking.jpg",
+    categoria: {
+      id: remera,
+    },
+    precio: 1300,
+  },
+  {
+    id: "remera2",
+    titulo: "remera leave the road",
+    imagen: "../imgs/remeras/remera leave the road.jpg",
+    categoria: {
+      id: remera,
+    },
     precio: 1500,
-    ingredientes: [
-      "lechuga",
-      "tomate",
-      "zanahoria",
-      "pepino",
-      "aceitunas",
-      "vinagreta",
-    ],
+  },
+  {
+    id: "remera3",
+    titulo: "remera out cast",
+    imagen: "../imgs/remeras/remera out cast.jpg",
+    categoria: {
+      id: remera,
+    },
+    precio: 1400,
+  },
+  {
+    id: "zapatilla1",
+    titulo: "zapatillas orange and white",
+    imagen: "../imgs/zapatillas/zapatilla orange and white.jpg",
+    categoria: {
+      id: zapatilla,
+    },
+    precio: 5000,
+  },
+  {
+    id: "zapatilla2",
+    titulo: "zapatillas red and white",
+    imagen: "../imgs/zapatillas/zapatilla red and white.jpg",
+    categoria: {
+      id: zapatilla,
+    },
+    precio: 7000,
+  },
+  {
+    id: "zapatilla3",
+    titulo: "zapatilla green and white",
+    imagen: "../imgs/zapatillas/zapatilla green and white.jpg",
+    categoria: {
+      id: zapatilla,
+    },
+    precio: 6000,
   },
 ];
 
-// Muestra del menú
-function mostrarMenu() {
-  console.log("=== MENÚ ===");
-  for (let i = 0; i < menu.length; i++) {
-    const { nombre, precio } = menu[i];
-    console.log(`${i + 1}. ${nombre} - $${precio}`);
-  }
+const contenedorproductos = document.querySelector("#contenedor-productos");
+
+function cargarproductos() {
+  productos.forEach((producto) => {
+    const div = document.createElement("div");
+    div.classList.add("producto");
+    div.innerHTML = `
+    <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+    <div class="producto-detalles">
+      <h3 class="producto-titulo">${producto.titulo}</h3>
+      <p class="producto-precio">$${producto.precio}</p>
+      <button class="producto-agregar" id="${producto.id}">Agregar</button>
+    </div>
+    `;
+    contenedorproductos.append(div);
+  });
 }
 
-// Carrito vacio
-let ordenes = [];
-
-// Hacer la orden
-function hacerOrden() {
-  let opcion = parseInt(
-    prompt("Ingrese el número de la comida que desea ordenar:")
-  );
-  while (opcion < 1 || opcion > menu.length) {
-    console.log("Ingrese una opción válida.");
-    opcion = parseInt(
-      prompt("Ingrese el número de la comida que desea ordenar:")
-    );
-  }
-  const cantidad = parseInt(prompt("Ingrese la cantidad de esa comida:"));
-  const comida = menu[opcion - 1];
-  const subtotal = comida.precio * cantidad;
-  const orden = { comida, cantidad, subtotal };
-  ordenes.push(orden);
-  console.log(
-    `Orden de ${cantidad} ${comida.nombre} agregada a la cuenta. Subtotal: $${subtotal}`
-  );
-}
-
-// Cuenta total de las ordenes
-function mostrarCuenta() {
-  let total = 0;
-  console.log("=== CUENTA ===");
-  for (let i = 0; i < ordenes.length; i++) {
-    const { comida, cantidad, subtotal } = ordenes[i];
-    console.log(
-      `${cantidad} ${comida.nombre} - $${comida.precio} c/u - subtotal: $${subtotal}`
-    );
-    total += subtotal;
-  }
-  console.log(`TOTAL: $${total}`);
-}
-
-// Muestra ingredientes de la comida
-function mostrarIngredientes() {
-  // Consulta por que comida desea ver los ingredientes
-  const comida = prompt(
-    "¿Qué comida quieres ver? (Hamburguesa, Pizza, Ensalada)"
-  ).toLowerCase();
-
-  // FIND en el menu
-  const comidaSeleccionada = menu.find(
-    (item) => item.nombre.toLowerCase() === comida
-  );
-
-  // Imprimir ingredientes
-  if (comidaSeleccionada) {
-    console.log(`Ingredientes de ${comidaSeleccionada.nombre}:`);
-    for (let i = 0; i < comidaSeleccionada.ingredientes.length; i++) {
-      console.log(comidaSeleccionada.ingredientes[i]);
-    }
-  } else {
-    console.log("La comida seleccionada no está en el menú.");
-  }
-}
-
-function vaciarCarrito() {
-  ordenes = [];
-  console.log("El carrito de compras ha sido vaciado.");
-}
-
-// EL programa se ejecuta hasta la opcion salir
-let salir = false;
-while (!salir) {
-  const opcion = parseInt(
-    prompt(
-      "Ingrese una opción:\n1. Ver menú\n2. Hacer orden\n3. Ver cuenta\n4. mostrar ingredientes\n5. Borar pedido\n6. Salir"
-    )
-  );
-  switch (opcion) {
-    case 1:
-      mostrarMenu();
-      break;
-    case 2:
-      hacerOrden();
-      break;
-    case 3:
-      mostrarCuenta();
-      break;
-    case 4:
-      mostrarIngredientes();
-      break;
-    case 5:
-      vaciarCarrito();
-      break;
-    case 6:
-      salir = true;
-      break;
-    default:
-      console.log("Opción inválida");
-      break;
-  }
-}
+cargarproductos();
