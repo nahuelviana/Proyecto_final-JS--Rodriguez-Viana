@@ -6,7 +6,7 @@ const productos = [
     titulo: "buzo black and white",
     imagen: "../imgs/buzos/buzo black and white.jpg",
     categoria: {
-      id: buzo,
+      id: "buzos",
     },
     precio: 2000,
   },
@@ -15,7 +15,7 @@ const productos = [
     titulo: "buzo blue",
     imagen: "../imgs/buzos/buzo blue.jpg",
     categoria: {
-      id: buzo,
+      id: "buzos",
     },
     precio: 2300,
   },
@@ -24,7 +24,7 @@ const productos = [
     titulo: "buzo boreal",
     imagen: "../imgs/buzos/buzo boreal.jpg",
     categoria: {
-      id: buzo,
+      id: "buzos",
     },
     precio: 2200,
   },
@@ -33,7 +33,7 @@ const productos = [
     titulo: "pantalon black",
     imagen: "../imgs/pantalones/pantalon black.jpg",
     categoria: {
-      id: pantalon,
+      id: "pantalones",
     },
     precio: 1900,
   },
@@ -42,7 +42,7 @@ const productos = [
     titulo: "pantalon brown",
     imagen: "../imgs/pantalones/pantalon brown.jpg",
     categoria: {
-      id: pantalon,
+      id: "pantalones",
     },
     precio: 1800,
   },
@@ -51,7 +51,7 @@ const productos = [
     titulo: "pantalon jean",
     imagen: "../imgs/pantalones/pantalon jean.jpg",
     categoria: {
-      id: pantalon,
+      id: "pantalones",
     },
     precio: 1950,
   },
@@ -60,7 +60,7 @@ const productos = [
     titulo: "remera fvking",
     imagen: "../imgs/remeras/remera fuking.jpg",
     categoria: {
-      id: remera,
+      id: "remeras",
     },
     precio: 1300,
   },
@@ -69,7 +69,7 @@ const productos = [
     titulo: "remera leave the road",
     imagen: "../imgs/remeras/remera leave the road.jpg",
     categoria: {
-      id: remera,
+      id: "remeras",
     },
     precio: 1500,
   },
@@ -78,7 +78,7 @@ const productos = [
     titulo: "remera out cast",
     imagen: "../imgs/remeras/remera out cast.jpg",
     categoria: {
-      id: remera,
+      id: "remeras",
     },
     precio: 1400,
   },
@@ -87,7 +87,7 @@ const productos = [
     titulo: "zapatillas orange and white",
     imagen: "../imgs/zapatillas/zapatilla orange and white.jpg",
     categoria: {
-      id: zapatilla,
+      id: "zapatillas",
     },
     precio: 5000,
   },
@@ -96,7 +96,7 @@ const productos = [
     titulo: "zapatillas red and white",
     imagen: "../imgs/zapatillas/zapatilla red and white.jpg",
     categoria: {
-      id: zapatilla,
+      id: "zapatillas",
     },
     precio: 7000,
   },
@@ -105,16 +105,18 @@ const productos = [
     titulo: "zapatilla green and white",
     imagen: "../imgs/zapatillas/zapatilla green and white.jpg",
     categoria: {
-      id: zapatilla,
+      id: "zapatillas",
     },
     precio: 6000,
   },
 ];
 
 const contenedorproductos = document.querySelector("#contenedor-productos");
+const productosboton = document.querySelectorAll(".boton-categoria");
 
-function cargarproductos() {
-  productos.forEach((producto) => {
+function cargarproductos(productoselegidos) {
+  contenedorproductos.innerHTML = " ";
+  productoselegidos.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
@@ -129,4 +131,13 @@ function cargarproductos() {
   });
 }
 
-cargarproductos();
+cargarproductos(productos);
+
+productosboton.forEach((boton) => {
+  boton.addEventListener("click", (e) => {
+    const productosboton = productos.filter(
+      (producto) => producto.categoria.id === e.currentTarget.id
+    );
+    cargarproductos(productosboton);
+  });
+});
