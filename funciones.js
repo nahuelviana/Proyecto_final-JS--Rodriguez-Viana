@@ -3,7 +3,7 @@ const productos = [
   //buzos
   {
     id: "buzo01",
-    titulo: "buzo black and white",
+    titulo: "Buzo black and white",
     imagen: "../imgs/buzos/buzo black and white.jpg",
     categoria: {
       id: "buzos",
@@ -13,7 +13,7 @@ const productos = [
   },
   {
     id: "buzo02",
-    titulo: "buzo blue",
+    titulo: "Buzo blue",
     imagen: "../imgs/buzos/buzo blue.jpg",
     categoria: {
       id: "buzos",
@@ -23,7 +23,7 @@ const productos = [
   },
   {
     id: "buzo3",
-    titulo: "buzo boreal",
+    titulo: "Buzo boreal",
     imagen: "../imgs/buzos/buzo boreal.jpg",
     categoria: {
       id: "buzos",
@@ -33,7 +33,7 @@ const productos = [
   },
   {
     id: "pantalon1",
-    titulo: "pantalon black",
+    titulo: "Pantalon black",
     imagen: "../imgs/pantalones/pantalon black.jpg",
     categoria: {
       id: "pantalones",
@@ -43,7 +43,7 @@ const productos = [
   },
   {
     id: "pantalon2",
-    titulo: "pantalon brown",
+    titulo: "Pantalon brown",
     imagen: "../imgs/pantalones/pantalon brown.jpg",
     categoria: {
       id: "pantalones",
@@ -53,7 +53,7 @@ const productos = [
   },
   {
     id: "pantalon3",
-    titulo: "pantalon jean",
+    titulo: "Pantalon jean",
     imagen: "../imgs/pantalones/pantalon jean.jpg",
     categoria: {
       id: "pantalones",
@@ -63,7 +63,7 @@ const productos = [
   },
   {
     id: "remera1",
-    titulo: "remera fvking",
+    titulo: "Remera fvking",
     imagen: "../imgs/remeras/remera fuking.jpg",
     categoria: {
       id: "remeras",
@@ -73,7 +73,7 @@ const productos = [
   },
   {
     id: "remera2",
-    titulo: "remera leave the road",
+    titulo: "Remera leave the road",
     imagen: "../imgs/remeras/remera leave the road.jpg",
     categoria: {
       id: "remeras",
@@ -83,7 +83,7 @@ const productos = [
   },
   {
     id: "remera3",
-    titulo: "remera out cast",
+    titulo: "Remera out cast",
     imagen: "../imgs/remeras/remera out cast.jpg",
     categoria: {
       id: "remeras",
@@ -93,7 +93,7 @@ const productos = [
   },
   {
     id: "zapatilla1",
-    titulo: "zapatillas orange and white",
+    titulo: "Zapatillas orange and white",
     imagen: "../imgs/zapatillas/zapatilla orange and white.jpg",
     categoria: {
       id: "zapatillas",
@@ -103,7 +103,7 @@ const productos = [
   },
   {
     id: "zapatilla2",
-    titulo: "zapatillas red and white",
+    titulo: "Zapatillas red and white",
     imagen: "../imgs/zapatillas/zapatilla red and white.jpg",
     categoria: {
       id: "zapatillas",
@@ -113,7 +113,7 @@ const productos = [
   },
   {
     id: "zapatilla3",
-    titulo: "zapatilla green and white",
+    titulo: "Zapatilla green and white",
     imagen: "../imgs/zapatillas/zapatilla green and white.jpg",
     categoria: {
       id: "zapatillas",
@@ -125,7 +125,8 @@ const productos = [
 
 //realizo la carga de los productos al dom
 
-const contenedorproductos = document.querySelector("#contenedor-productos");
+
+const contenedorproductos = document.getElementById("contenedor-productos");
 let botonesagregar = document.querySelectorAll(".producto-agregar");
 
 function cargarproductos(productoselegidos) {
@@ -174,10 +175,6 @@ productosboton.forEach((boton) => {
 
 function nuevosbotonesagregar() {
   botonesagregar = document.querySelectorAll(".producto-agregar");
-}
-
-function nuevosbotonesagregar() {
-  botonesagregar = document.querySelectorAll(".producto-agregar");
   botonesagregar.forEach((boton) => {
     boton.addEventListener("click", AgregarAlCarrito);
   });
@@ -185,7 +182,17 @@ function nuevosbotonesagregar() {
 
 //creando carrito y agregando productos
 
-const productosEnCarrito = [];
+
+let productosEnCarrito;
+
+const productosEnCarritoLS = JSON.parse(localStorage.getItem("productos-en-carrito"))
+
+if (productosEnCarritoLS) {
+  productosEnCarrito = productosEnCarritoLS
+} else {
+  productosEnCarrito = []
+}
+
 
 function AgregarAlCarrito(e) {
   const idboton = e.currentTarget.id;
@@ -206,5 +213,4 @@ function AgregarAlCarrito(e) {
     JSON.stringify(productosEnCarrito)
   );
   const form = document.getElementById("form-" + idboton);
-  form.reset();
 }
