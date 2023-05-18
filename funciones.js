@@ -3,7 +3,7 @@ const productos = [
   //buzos
   {
     id: "buzo01",
-    titulo: "Buzo black and white",
+    titulo: "Buzo black&white",
     imagen: "../imgs/buzos/buzo black and white.jpg",
     categoria: {
       id: "buzos",
@@ -93,8 +93,8 @@ const productos = [
   },
   {
     id: "zapatilla1",
-    titulo: "Zapatillas orange and white",
-    imagen: "../imgs/zapatillas/zapatilla orange and white.jpg",
+    titulo: "Zapatillas orange&white",
+    imagen: "../imgs/zapatillas/orange and white.jpg",
     categoria: {
       id: "zapatillas",
       nombre: "zapatillas",
@@ -103,8 +103,8 @@ const productos = [
   },
   {
     id: "zapatilla2",
-    titulo: "Zapatillas red and white",
-    imagen: "../imgs/zapatillas/zapatilla red and white.jpg",
+    titulo: "Zapatillas rainbow",
+    imagen: "../imgs/zapatillas/rainbow.jpg",
     categoria: {
       id: "zapatillas",
       nombre: "zapatillas",
@@ -113,8 +113,8 @@ const productos = [
   },
   {
     id: "zapatilla3",
-    titulo: "Zapatilla green and white",
-    imagen: "../imgs/zapatillas/zapatilla green and white.jpg",
+    titulo: "Zapatillas Blue&white",
+    imagen: "../imgs/zapatillas/bluewhite.jpg",
     categoria: {
       id: "zapatillas",
       nombre: "zapatillas",
@@ -124,8 +124,6 @@ const productos = [
 ];
 
 //realizo la carga de los productos al dom
-
-
 const contenedorproductos = document.getElementById("contenedor-productos");
 let botonesagregar = document.querySelectorAll(".producto-agregar");
 

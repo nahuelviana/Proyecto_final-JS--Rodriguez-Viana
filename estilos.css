@@ -12,11 +12,11 @@ main {
   background-color: grey;
 }
 .navbar-brand {
-  color: white;
+  color: black;
   text-decoration: underline;
 }
 .nav-link {
-  color: white;
+  color: black;
   text-decoration: underline;
 }
 
@@ -42,6 +42,8 @@ h2 {
 
 .producto-precio {
   font-size: 20;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .titulo-principal {
@@ -62,6 +64,7 @@ h2 {
   align-items: center;
   border: 3px solid #000;
   border-radius: 15px;
+  height: 400px;
 }
 
 .contenedorbotones {
@@ -73,7 +76,7 @@ h2 {
 }
 
 .boton-categoria {
-  background-color: yellowgreen;
+  background-color: white;
   margin: 10px;
   color: black;
 }
@@ -111,9 +114,7 @@ main {
   text-align: center;
   border: 2px solid black;
 }
-.producto-precio{
-  text-align: center;
-}
+
 .carrito-producto {
   display: grid;
   justify-content: center;
@@ -141,4 +142,48 @@ main {
   background-color: white;
   border-radius: 10px;
   margin-bottom: 10px;
+  width: 260px;
+}
+.carrito-acciones{
+  display: grid;
+  justify-content: center;
+}
+.carrito-acciones-derecha{
+  display: grid;
+  place-items: center;
+  width: 200px;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+}
+.carrito-acciones-izquierda {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.carrito-producto-eliminar{
+  background-color: red;
+  margin-top: 10px;
+}
+
+.carrito-acciones-vaciar{
+  background-color: black;
+  color: white;
+}
+.carrito-comprado{
+  text-align: center;
+  margin-top: 20px;
+  border: 5px solid black;
+}
+
+.divtitulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  margin-left: 20px;
+}
+.imagentienda{
+  max-width: 55px;
+  margin-left: 20px;
 }
