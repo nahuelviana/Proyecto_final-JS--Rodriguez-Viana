@@ -212,3 +212,19 @@ function AgregarAlCarrito(e) {
   );
   const form = document.getElementById("form-" + idboton);
 }
+
+botonesagregar.forEach((boton) => {
+  boton.addEventListener("click", function(){
+    const idProducto = boton.id;
+    const producto = productos.find((p) => p.id === idProducto);
+
+    Swal.fire({
+      title: producto.titulo + ' se agregó al carrito', // Título del producto agregado
+      imageUrl: producto.imagen,
+      imageWidth: 350,
+      imageHeight: 450,
+      imageAlt: 'Custom image',
+      timer: 2000, 
+    });
+  });
+});

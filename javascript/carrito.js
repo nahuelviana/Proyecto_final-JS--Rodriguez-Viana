@@ -7,6 +7,7 @@ const botonVaciar = document.getElementById("carrito-acciones-vaciar")
 let botonesEliminar = document.querySelectorAll (".carrito-producto-eliminar");
 const contenedorCarritoProductos = document.querySelector("#carrito-productos");
 const contenedorTotal = document.getElementById("total")
+const btn = document.querySelector ("#carrito-acciones-comprar")
 
 function cargarProductosCarrito() {
     if (productosEnCarrito && productosEnCarrito.length >= 0) {
@@ -79,3 +80,23 @@ function actualizarTotal (){
     const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad),0);
     total.innerHTML = `$${totalCalculado}`;
 }
+
+btn.addEventListener("click", function(){
+    if (productosEnCarrito.length > 0) {
+        // Carrito con productos
+        Swal.fire({
+        icon: 'success',
+        title: 'COMPRA CONFIRMADA.',
+        text: 'Se enviaran los detalles al mail con el que registrastre tu cuenta en nuestra pagina.',
+        footer: 'Gracias por confiar en nosotros.'
+        });
+    } else {
+        // Carrito vacío
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Parece que no has seleccionado productos',
+        footer: '<a href="../index.html">Vuelve a nuestra tienda haciendo click aqui</a>'
+        });
+    }
+})
