@@ -96,7 +96,7 @@ btn.addEventListener("click", function(){
         icon: 'error',
         title: 'Oops...',
         text: 'Parece que no has seleccionado productos',
-        footer: '<a href="../index.html">Vuelve a nuestra tienda haciendo click aqui</a>'
+        footer: '<a href="../index.html" class="btn btn-outline-dark">Vuelve a nuestra tienda haciendo click aqui</a>'
         });
     }
 })
