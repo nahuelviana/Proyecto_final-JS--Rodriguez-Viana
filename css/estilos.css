@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* CSS del INDEX */
 .icono {
   max-width: 50px;
   max-height: 50px;
@@ -85,10 +87,10 @@ h2 {
   padding: 30px;
 }
 
-/* tarjetas */
+/* CARDS INDEX */
 .contenedor-productos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   place-items: center;
   padding: 30px;
@@ -104,7 +106,7 @@ img {
   background-color: green;
 }
 
-/* css del carrito */
+/* CSS DEL CARRITO */
 
 main {
   background-color: grey;
@@ -151,10 +153,12 @@ main {
 .carrito-acciones-derecha{
   display: grid;
   place-items: center;
-  width: 200px;
+  height: 200px;
+  width: 400px;
   border: 2px solid white;
   background-color: black;
   color: white;
+  margin-bottom: 40px;
 }
 .carrito-acciones-izquierda {
   display: flex;
@@ -169,6 +173,8 @@ main {
 .carrito-acciones-vaciar{
   background-color: black;
   color: white;
+  width: 140px;
+  height: 40px;
 }
 .carrito-comprado{
   text-align: center;
@@ -186,4 +192,17 @@ main {
 .imagentienda{
   max-width: 55px;
   margin-left: 20px;
+}
+
+.carrito-acciones-comprar {
+  height: 50px;
+  width: 100px;
+}
+
+.txttotal{
+  font-size: 30px;
+}
+.numtotal{
+  font-size: 20px;
+  text-decoration: underline;
 }

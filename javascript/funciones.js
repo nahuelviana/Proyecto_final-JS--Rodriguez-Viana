@@ -1,7 +1,7 @@
 let productos; // Declarar la variable productos en un ámbito global
 let botonesagregar;
 
-fetch('../productos.json/productos.json')
+fetch('../productosBD/productos.json')
   .then(response => response.json())
   .then(data => {
     productos = data.productos; // Asignar los datos a la variable productos
