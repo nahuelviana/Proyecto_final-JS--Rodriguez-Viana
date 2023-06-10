@@ -35,7 +35,7 @@ function cargarproductos(productoselegidos) {
         <div class="producto-detalles">
           <h3 class="producto-titulo">${producto.titulo}</h3>
           <p class="producto-precio">$${producto.precio}</p>
-          <button class="producto-agregar" id="${producto.id}"><span>Button</span></button>
+          <button class="producto-agregar" id="${producto.id}"><span>AGREGAR</span></button>
         </div>
       `;
       contenedorproductos.append(div);
